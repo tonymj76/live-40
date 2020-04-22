@@ -25,7 +25,17 @@ export default {
   loading: { color: '#fff' },
 
   css: ['~/assets/bg.scss'],
-  modules: ['@nuxtjs/style-resources'],
+  /*
+   ** Nuxt.js modules
+   */
+  modules: [
+    '@nuxtjs/style-resources',
+    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/axios',
+    '@nuxtjs/pwa',
+    // Doc: https://github.com/nuxt-community/dotenv-module
+    '@nuxtjs/dotenv'
+  ],
   styleResources: {
     scss: ['assets/_mixins.scss']
   },
@@ -41,16 +51,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify'
   ],
-  /*
-   ** Nuxt.js modules
-   */
-  modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
-  ],
+
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options

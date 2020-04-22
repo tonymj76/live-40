@@ -7,10 +7,11 @@
       fixed
       temporary
       app
+      class="success"
     >
       <v-list>
         <v-list-item
-          v-for="(item, i) in items"
+          v-for="(item, i) in navItems"
           :key="i"
           :to="item.to"
           router
@@ -27,27 +28,24 @@
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" fixed app flat grey lighten-4>
       <v-app-bar-nav-icon
-        class="hidden-md-and-up"
+        class="hidden-sm-and-up"
         @click.stop="drawer = !drawer"
       />
-      <!-- <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn> -->
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title router to="/" v-text="title" />
       <v-spacer />
-      <div v-for="item in navItems" :key="item.name">
+      <div v-for="item in navItems" :key="item.title">
         <v-btn
           text
           retain-focus-on-click
           active-class="active"
-          class="btn-color grey--text"
+          class="btn-color grey--text hidden-sm-and-down"
         >
-          {{ item.name }}
+          {{ item.title }}
         </v-btn>
       </div>
     </v-app-bar>
     <v-content>
-      <v-container>
+      <v-container pa-0>
         <nuxt />
       </v-container>
     </v-content>
@@ -66,28 +64,24 @@ export default {
       fixed: false,
       navItems: [
         {
-          name: 'Exercises'
-        },
-        {
-          name: 'Weight Loss'
-        },
-        {
-          name: 'Nutrition'
-        },
-        {
-          name: 'Features'
-        }
-      ],
-      items: [
-        {
+          title: 'Exercises',
           icon: 'mdi-apps',
-          title: 'Welcome',
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          title: 'Weight Loss',
+          icon: 'mdi-apps',
+          to: '/'
+        },
+        {
+          title: 'Nutrition',
+          icon: 'mdi-apps',
+          to: '/'
+        },
+        {
+          title: 'Features',
+          icon: 'mdi-apps',
+          to: '/'
         }
       ],
       miniVariant: false,
