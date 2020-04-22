@@ -163,6 +163,25 @@
         </v-row>
       </div>
     </section>
+    <section id="email__setup">
+      <v-form v-model="valid">
+        <v-container>
+          <v-row>
+            <v-col sm="12" md="4">
+              <v-text-field
+                v-model="email"
+                :rules="emailRules"
+                label="E-mail"
+                required
+              ></v-text-field>
+            </v-col>
+            <v-col sm="12" md="2">
+              <v-btn class="info" large>subscribe</v-btn>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-form>
+    </section>
   </main>
 </template>
 
@@ -170,6 +189,12 @@
 export default {
   data() {
     return {
+      valid: null,
+      email: '',
+      emailRules: [
+        (v) => !!v || 'E-mail is required',
+        (v) => /.+@.+/.test(v) || 'E-mail must be valid'
+      ],
       sectionImage: {
         url: 'man-holding-black-dumbbell.jpg',
         alt: 'man-holding-black-dumbbell'
