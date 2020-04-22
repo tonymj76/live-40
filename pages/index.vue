@@ -106,8 +106,8 @@
           <span>Workout</span>
         </h2>
         <v-row>
-          <v-col sm="12" md="5">
-            <v-card class="mx-auto" max-width="400" flat>
+          <v-col sm="12" md="6">
+            <v-card flat>
               <v-img
                 class="white--text align-end"
                 height="200px"
@@ -117,15 +117,15 @@
                 <v-card-title>Top 10 Australian beaches</v-card-title>
               </v-img>
 
-              <v-card-subtitle class="pb-0">Number 10</v-card-subtitle>
+              <v-card-subtitle class="pb-0 px-0">Number 10</v-card-subtitle>
 
-              <v-card-text class="text--primary">
+              <v-card-text class="text--primary px-0">
                 <div>Whitehaven Beach</div>
 
                 <div>Whitsunday Island, Whitsunday Islands</div>
               </v-card-text>
 
-              <v-card-actions>
+              <v-card-actions class="px-0">
                 <v-btn color="orange" text>
                   Share
                 </v-btn>
@@ -136,23 +136,29 @@
               </v-card-actions>
             </v-card>
           </v-col>
-          <v-col sm="12" md="7">
+          <v-col sm="12" md="6">
             <v-card v-for="n in 3" :key="n" color="white" flat>
               <div class="d-flex flex-no-wrap justify-space-around">
                 <div>
                   <v-card-title
-                    class="headline"
+                    class="headline px-0"
                     v-text="'some head line'"
                   ></v-card-title>
 
-                  <v-card-subtitle v-text="'the artise'"></v-card-subtitle>
+                  <v-card-subtitle
+                    class="px-0"
+                    v-text="'the artise'"
+                  ></v-card-subtitle>
                 </div>
 
-                <v-avatar class="ma-3" size="125" tile>
+                <v-avatar class="ma-3" size="100" tile>
                   <v-img :src="card.url2" :alt="card.alt2"></v-img>
                 </v-avatar>
               </div>
             </v-card>
+            <v-btn block outlined color="info">
+              <span class="cation">View more</span>
+            </v-btn>
           </v-col>
         </v-row>
       </div>
