@@ -163,24 +163,43 @@
         </v-row>
       </div>
     </section>
-    <section id="email__setup">
-      <v-form v-model="valid">
-        <v-container>
+    <section id="subscribe__form">
+      <v-card class="subscribe__card mx-auto" max-width="344">
+        <v-container class="pb-0">
           <v-row>
-            <v-col sm="12" md="4">
+            <v-col>
+              <v-row justify="center">
+                <v-avatar color="red">
+                  <span class="white--text headline">SB</span>
+                </v-avatar>
+              </v-row>
+            </v-col>
+          </v-row>
+        </v-container>
+        <v-card-title class="text-center">
+          Subscribe For Latest Updates
+        </v-card-title>
+        <v-card-subtitle class="text-center">
+          Signup for our newsletters and get notified when we publish new
+          article for free
+        </v-card-subtitle>
+        <v-form v-model="valid">
+          <v-container class="py-0">
+            <v-col sm="12" md="12" class="py-0">
               <v-text-field
                 v-model="email"
                 :rules="emailRules"
                 label="E-mail"
+                class="pt-0"
                 required
               ></v-text-field>
             </v-col>
-            <v-col sm="12" md="2">
-              <v-btn class="info" large>subscribe</v-btn>
+            <v-col sm="6" class="mx-auto pt-0">
+              <v-btn class="info pt-0" large>subscribe</v-btn>
             </v-col>
-          </v-row>
-        </v-container>
-      </v-form>
+          </v-container>
+        </v-form>
+      </v-card>
     </section>
   </main>
 </template>
@@ -198,6 +217,10 @@ export default {
       sectionImage: {
         url: 'man-holding-black-dumbbell.jpg',
         alt: 'man-holding-black-dumbbell'
+      },
+      subscribeForm: {
+        url: 'p.png',
+        alt: 'profile'
       },
       card: {
         title: 'card title',
@@ -279,5 +302,16 @@ export default {
     top: calc(50% - 4px);
     left: calc(100% + 30px);
   }
+}
+
+#subscribe__form {
+  // background-color: rgb(12, 8, 8);
+  // color: #fff;
+  // border-radius: 10px;
+  // .subscribe__card {
+  //   display: flex !important;
+  //   flex-flow: column wrap;
+  //   justify-content: center;
+  // }
 }
 </style>
