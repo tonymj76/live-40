@@ -49,9 +49,7 @@
       </div>
     </section>
     <section id="feature">
-      <div
-        class="title feature__header subtitle-1 text-uppercase grey--text lighten-4"
-      >
+      <div class="feature__header text-uppercase grey--text lighten-4">
         Featured Article
       </div>
       <v-row>
@@ -82,17 +80,15 @@
               </div>
             </v-col>
             <v-col sm="12" md="4">
-              <div class="feature__content text-uppercase">
-                <a href="#" class="feature__category overline"
-                  >feature category</a
-                >
+              <div class="feature__content">
+                <a href="#" class="feature__category overline">News</a>
                 <h3 class="feature__title headline">
-                  <a href="#">some big header</a>
+                  <a href="#">7 Things to Know About HIIT</a>
                 </h3>
-                <p class="feature__subtitle subtitle-2">
-                  feature card__subtitle
+                <p class="feature__subtitle subtitle-1">
+                  Check out the scientific research behind HIIT and get hooked.
                 </p>
-                <a href class="feature__readmore caption">readmore</a>
+                <a href class="feature__readmore text-uppercase">Read More</a>
               </div>
             </v-col>
           </v-row>
@@ -177,7 +173,7 @@
           </v-row>
         </v-container>
         <v-card-title class="text-center">
-          Subscribe For Latest Updates
+          Subscribe For Latest Updates and you must
         </v-card-title>
         <v-card-subtitle class="text-center">
           Signup for our newsletters and get notified when we publish new
@@ -195,7 +191,9 @@
               ></v-text-field>
             </v-col>
             <v-col sm="6" class="mx-auto pt-0">
-              <v-btn class="info pt-0" large>subscribe</v-btn>
+              <v-row justify="center">
+                <v-btn class="info pt-0" large>subscribe</v-btn>
+              </v-row>
             </v-col>
           </v-container>
         </v-form>
@@ -223,7 +221,7 @@ export default {
         alt: 'profile'
       },
       card: {
-        title: 'card title',
+        title: '',
         url: 'three-women-kneeling-on-floor.jpg',
         alt: 'three-women-kneeling-on-floor',
         url2:
@@ -270,15 +268,62 @@ export default {
   .feature__cards {
     padding-top: calculateRem(10px);
   }
+  a {
+    text-decoration: none;
+    transition: color 0.2s, background 0.2s, opacity 0.2s;
+  }
+  .feature__category {
+    color: #2a2a2a;
+    background: transparent;
+  }
+  .feature__header {
+    font-family: givefont('convergence') !important;
+    font-weight: 400;
+    font-size: 21px;
+    letter-spacing: -1px;
+    line-height: 36px;
+  }
+  .feature__title > a {
+    font-family: givefont('convergence') !important;
+    color: #2a2a2a;
+    max-height: 2.2em;
+    text-overflow: ellipsis;
+    line-height: 1.063;
+    transition: opacity 0.2s;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    @include fontSize(26px);
+  }
+  .feature__readmore {
+    font-family: givefont('roboto') !important;
+    font-weight: 400;
+    @include fontSize(12px);
+    letter-spacing: 4px;
+    line-height: 21px;
+    position: relative;
+    &:after {
+      content: '';
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: #f01616;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      transition: width 0.2s ease-out;
+    }
+    &:hover:after {
+      width: 100px;
+    }
+  }
   .feature__content {
     padding-bottom: calculateRem(16px) !important;
     border-bottom: 1px solid #9e9e9e;
     padding-top: calculateRem(10px);
-    .feature__header {
-      padding-bottom: calculateRem(20px);
-    }
     .feature__subtitle {
+      max-height: 90px !important;
       padding-bottom: 3px !important;
+      line-height: calculateRem(22px) !important;
     }
   }
 }
@@ -305,13 +350,5 @@ export default {
 }
 
 #subscribe__form {
-  // background-color: rgb(12, 8, 8);
-  // color: #fff;
-  // border-radius: 10px;
-  // .subscribe__card {
-  //   display: flex !important;
-  //   flex-flow: column wrap;
-  //   justify-content: center;
-  // }
 }
 </style>
