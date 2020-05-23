@@ -1,32 +1,33 @@
-// @mixin font($font-faminly, $font-file, $font-weight:normal, $font-style:normal) {
-//   @font-face {
-//     font-family: $font-faminly;
-//     src: url($font-file+'.eot');
-//     src: url($font-file+'.eot?#iefix') format('embedded-opentype'),
-//       url($font-file+'.woff') format('woff'),
-//       url($font-file+'.woff2') format('woff2'),
-//       url($font-file+'.ttf') format('truetype'),
-//       url($font-file+'.svg#aller') format('svg');
-//     font-weight: $font-weight;
-//     font-style: $font-style;
-//   }
-// }
+//Custom font
+@mixin font($font-faminly, $font-file, $font-weight:normal, $font-style:normal) {
+  @font-face {
+    font-family: $font-faminly;
+    src: url($font-file+'.eot');
+    src: url($font-file+'.eot?#iefix') format('embedded-opentype'),
+      url($font-file+'.woff') format('woff'),
+      url($font-file+'.woff2') format('woff2'),
+      url($font-file+'.ttf') format('truetype'),
+      url($font-file+'.svg#aller') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
 
 
 
-// @include font('Montserrat', '../font/Montserrat/Montserrat-Regular');
-// @include font('Roboto', '../font/Roboto/Roboto-Regular');
+@include font('Convergence', '../static/font/Convergence/Convergence-Regular');
+@include font('Roboto', '../static/font/Roboto/Roboto-Regular');
 
-// $custom-font: (
-//   mon: 'Montserrat',
-//   rob: 'Roboto',
-// );
+$custom-font: (
+  convergence: 'Convergence',
+  roboto: 'Roboto',
+);
 
-// @function givefont($font-name) {
-//   $holder: map-get($map: $custom-font, $key: $font-name);
-//   $font-full-name:$holder, Lato, Arial, Helvetica, sans-serif !default;
-//   @return $font-full-name;
-// }
+@function givefont($font-name) {
+  $holder: map-get($map: $custom-font, $key: $font-name);
+  $font-full-name:$holder, Lato, Montserrat, Arial, Helvetica, sans-serif !default;
+  @return $font-full-name;
+}
 
 // Responsive
 $responsive: (desktop: 75em,
@@ -44,22 +45,6 @@ min_tab:36em);
   @return map-get($map: $responsive, $key: $resp-size);
 }
 
-//buttons
-// @mixin menu-button {
-//   border-radius: 12px !important;
-//   font-family: givefont(rob) !important;
-// }
-
-@function calculateRem($size) {
-  $remSize: $size / 16px;
-  @return #{$remSize}rem;
-}
-
-@mixin fontSize($size) {
-  font-size: $size !important; //Fallback in px
-  font-size: calculateRem($size) !important;
-}
-
 @mixin mobile-grid {
   display: grid !important;
   grid-auto-columns: 1fr;
@@ -71,6 +56,19 @@ min_tab:36em);
   margin: calculateRem(45px) 0;
   padding: calculateRem(40px) calculateRem(35px);
 }
+
+//calculating sizes 
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return #{$remSize}rem;
+}
+
+@mixin fontSize($size) {
+  font-size: $size !important; //Fallback in px
+  font-size: calculateRem($size) !important;
+}
+
+//Custom styles
 @mixin btn {
   color: $primary !important;
   border-radius: calculateRem(30px) !important;
