@@ -81,14 +81,14 @@
             </v-col>
             <v-col sm="12" md="4">
               <div class="feature__content">
-                <a href="#" class="feature__category overline">News</a>
-                <h3 class="feature__title headline">
+                <a href="#" class="l__texture overline">News</a>
+                <h3 class="l__title headline">
                   <a href="#">7 Things to Know About HIIT</a>
                 </h3>
                 <p class="feature__subtitle subtitle-1">
                   Check out the scientific research behind HIIT and get hooked.
                 </p>
-                <a href class="feature__readmore text-uppercase">Read More</a>
+                <a href class="l__readmore text-uppercase">Read More</a>
               </div>
             </v-col>
           </v-row>
@@ -98,7 +98,7 @@
     </section>
     <section id="workout">
       <div>
-        <h2 class="workout__header display-2 grey--text lighten-2">
+        <h2 class="workout__header display-2 grey--text lighten-4">
           <span>Workout</span>
         </h2>
         <v-row>
@@ -110,24 +110,34 @@
                 :src="card.url2"
                 :alt="card.alt2"
               >
-                <v-card-title>Top 10 Australian beaches</v-card-title>
+                <v-card-title>this should be coming from the api</v-card-title>
               </v-img>
 
-              <v-card-subtitle class="pb-0 px-0">Number 10</v-card-subtitle>
+              <v-card-subtitle
+                class="pb-0 px-0 overline l__texture text-uppcase"
+              >
+                workout tips
+              </v-card-subtitle>
 
               <v-card-text class="text--primary px-0">
-                <div>Whitehaven Beach</div>
-
-                <div>Whitsunday Island, Whitsunday Islands</div>
+                <h3 class="l__title headline">
+                  <a href="#">7 Things to Know About HIIT</a>
+                </h3>
+                <div>
+                  <p class="l__subtitle subtitle-1">
+                    Check out the scientific research behind HIIT and get
+                    hooked.
+                  </p>
+                </div>
               </v-card-text>
 
               <v-card-actions class="px-0">
-                <v-btn color="orange" text>
-                  Share
-                </v-btn>
+                <a href="#" class="l__readmore text-uppercase">
+                  Read More
+                </a>
 
                 <v-btn color="orange" text>
-                  Explore
+                  Share
                 </v-btn>
               </v-card-actions>
             </v-card>
@@ -136,15 +146,14 @@
             <v-card v-for="n in 3" :key="n" color="white" flat>
               <div class="d-flex flex-no-wrap justify-space-around">
                 <div>
-                  <v-card-title
-                    class="headline px-0"
-                    v-text="'some head line'"
-                  ></v-card-title>
-
                   <v-card-subtitle
-                    class="px-0"
+                    class="px-0 l__texture overline"
                     v-text="'the artise'"
                   ></v-card-subtitle>
+                  <v-card-title
+                    class="l__title headline px-0"
+                    v-text="'some head line'"
+                  ></v-card-title>
                 </div>
 
                 <v-avatar class="ma-3" size="100" tile>
@@ -248,6 +257,51 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.l__texture {
+  color: #2a2a2a;
+  background: transparent;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s, opacity 0.2s;
+}
+
+.l__title > a {
+  font-family: givefont('convergence') !important;
+  color: #2a2a2a;
+  max-height: 2.2em;
+  text-overflow: ellipsis;
+  line-height: 1.063;
+  transition: opacity 0.2s;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  @include fontSize(26px);
+}
+
+.l__readmore {
+  font-family: givefont('roboto') !important;
+  font-weight: 400;
+  @include fontSize(12px);
+  letter-spacing: 4px;
+  line-height: 21px;
+  position: relative;
+  &:after {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #f01616;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transition: width 0.2s ease-out;
+  }
+  &:hover:after {
+    width: 100px;
+  }
+}
+
 #section__top {
   display: grid;
   grid-template-columns: 2em 1fr;
@@ -268,53 +322,12 @@ export default {
   .feature__cards {
     padding-top: calculateRem(10px);
   }
-  a {
-    text-decoration: none;
-    transition: color 0.2s, background 0.2s, opacity 0.2s;
-  }
-  .feature__category {
-    color: #2a2a2a;
-    background: transparent;
-  }
   .feature__header {
     font-family: givefont('convergence') !important;
     font-weight: 400;
     font-size: 21px;
     letter-spacing: -1px;
     line-height: 36px;
-  }
-  .feature__title > a {
-    font-family: givefont('convergence') !important;
-    color: #2a2a2a;
-    max-height: 2.2em;
-    text-overflow: ellipsis;
-    line-height: 1.063;
-    transition: opacity 0.2s;
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    @include fontSize(26px);
-  }
-  .feature__readmore {
-    font-family: givefont('roboto') !important;
-    font-weight: 400;
-    @include fontSize(12px);
-    letter-spacing: 4px;
-    line-height: 21px;
-    position: relative;
-    &:after {
-      content: '';
-      display: block;
-      width: 25px;
-      height: 3px;
-      background: #f01616;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      transition: width 0.2s ease-out;
-    }
-    &:hover:after {
-      width: 100px;
-    }
   }
   .feature__content {
     padding-bottom: calculateRem(16px) !important;
@@ -329,10 +342,17 @@ export default {
 }
 #workout {
   @include globalView;
+  .grey--text {
+    color: #9e9e9e5e !important;
+  }
   .workout__header {
     width: 100%;
     overflow: hidden;
     margin-bottom: 33px;
+    span {
+      font-family: givefont('convergence');
+      font-weight: 600 !important;
+    }
   }
   .workout__header span {
     position: relative;
