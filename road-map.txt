@@ -1,0 +1,27 @@
+Site Feautures are
+
+
+.Landing page:
+ -> carousel section
+ -> Features blog section
+ -> workout section
+ -> Nutrition
+ -> Videos
+ -> Form
+ -> Footer
+
+.Workout page:
+
+
+.Nutrition page:
+
+
+.Videos page:
+
+
+.Features page:
+
+
+
+
+Timeline saturday 23 may i added font to make the mobile view more presentable
