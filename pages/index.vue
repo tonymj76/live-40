@@ -121,8 +121,11 @@
 
               <v-card-text class="text--primary px-0">
                 <h3 class="l__title headline">
-                  <a href="#">7 Things to Know About HIIT</a>
+                  <a href="#">
+                    The Best Bodyweight Exercises to Train Your Abs and Obliques
+                  </a>
                 </h3>
+
                 <div>
                   <p class="l__subtitle subtitle-1">
                     Check out the scientific research behind HIIT and get
