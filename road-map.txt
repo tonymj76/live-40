@@ -4,7 +4,7 @@ Site Feautures are
 .Landing page:
  -> carousel section
  -> Features blog section
- -> workout section
+ -> workout section -> workout tips workout routine
  -> Nutrition
  -> Videos
  -> Form
