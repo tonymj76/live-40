@@ -107,8 +107,10 @@
               <v-img
                 class="white--text align-end"
                 height="200px"
-                :src="card.url2"
-                :alt="card.alt2"
+                :src="card.urlwork"
+                :alt="card.altwork"
+                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                lazy-src="https://picsum.photos/id/11/100/60"
               >
                 <v-card-title>this should be coming from the api</v-card-title>
               </v-img>
@@ -145,25 +147,33 @@
               </v-card-actions>
             </v-card>
           </v-col>
-          <v-col sm="12" md="6">
-            <v-card v-for="n in 3" :key="n" color="white" flat>
-              <div class="d-flex flex-no-wrap justify-space-around">
-                <div>
-                  <v-card-subtitle
-                    class="px-0 l__texture overline"
-                    v-text="'the artise'"
-                  ></v-card-subtitle>
-                  <v-card-title
-                    class="l__title headline px-0"
-                    v-text="'some head line'"
-                  ></v-card-title>
-                </div>
+          <v-col sm="12" md="6" class="pl-md-12">
+            <article
+              v-for="n in 3"
+              :key="n"
+              color="white"
+              class="d-flex flex-row pb-2"
+            >
+              <n-link to="/">
+                <v-img
+                  :src="card.urlworkArt"
+                  :alt="card.altworkArt"
+                  height="72"
+                  width="128"
+                ></v-img>
+              </n-link>
 
-                <v-avatar class="ma-3" size="100" tile>
-                  <v-img :src="card.url2" :alt="card.alt2"></v-img>
-                </v-avatar>
+              <div class="article__content pl-5">
+                <v-card-subtitle
+                  class="pa-0 l__texture overline"
+                  v-text="'the artise'"
+                ></v-card-subtitle>
+                <h4
+                  class="article__title headline px-0 pt-0"
+                  v-text="'Build Massive Muscles with Time Under Tension'"
+                ></h4>
               </div>
-            </v-card>
+            </article>
             <v-btn block outlined color="info">
               <span class="cation">View more</span>
             </v-btn>
@@ -171,6 +181,92 @@
         </v-row>
       </div>
     </section>
+    <section id="nutrition">
+      <div>
+        <h2 class="workout__header display-2 grey--text lighten-4">
+          <span>Nutrition</span>
+        </h2>
+        <v-row>
+          <v-col sm="12" md="6">
+            <v-card flat>
+              <v-img
+                class="white--text align-end"
+                height="200px"
+                :src="card.urlnut"
+                :alt="card.altnut"
+                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                lazy-src="https://picsum.photos/id/11/100/60"
+              >
+                <v-card-title>this should be coming from the api</v-card-title>
+              </v-img>
+
+              <v-card-subtitle
+                class="pb-0 px-0 overline l__texture text-uppcase"
+              >
+                workout tips
+              </v-card-subtitle>
+
+              <v-card-text class="text--primary px-0">
+                <h3 class="l__title headline">
+                  <a href="#">
+                    The Best Bodyweight Exercises to Train Your Abs and Obliques
+                  </a>
+                </h3>
+
+                <div>
+                  <p class="l__subtitle subtitle-1">
+                    Check out the scientific research behind HIIT and get
+                    hooked.
+                  </p>
+                </div>
+              </v-card-text>
+
+              <v-card-actions class="px-0">
+                <a href="#" class="l__readmore text-uppercase">
+                  Read More
+                </a>
+
+                <v-btn color="orange" text>
+                  Share
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+          <v-col sm="12" md="6" class="pl-md-12">
+            <article
+              v-for="n in 3"
+              :key="n"
+              color="white"
+              class="d-flex flex-row pb-2"
+            >
+              <n-link to="/">
+                <v-img
+                  :src="card.urlnutArt"
+                  :alt="card.altnutArt"
+                  height="72"
+                  width="128"
+                ></v-img>
+              </n-link>
+
+              <div class="article__content pl-5">
+                <v-card-subtitle
+                  class="pa-0 l__texture overline"
+                  v-text="'the artise'"
+                ></v-card-subtitle>
+                <h4
+                  class="article__title headline px-0 pt-0"
+                  v-text="'Build Massive Muscles with Time Under Tension'"
+                ></h4>
+              </div>
+            </article>
+            <v-btn block outlined color="info">
+              <span class="cation">View more</span>
+            </v-btn>
+          </v-col>
+        </v-row>
+      </div>
+    </section>
+    <section id="video"></section>
     <section id="subscribe__form">
       <v-card class="subscribe__card mx-auto" max-width="344">
         <v-container class="pb-0">
@@ -236,9 +332,15 @@ export default {
         title: '',
         url: 'three-women-kneeling-on-floor.jpg',
         alt: 'three-women-kneeling-on-floor',
-        url2:
+        urlwork:
           'person-wearing-black-shorts-and-blue-lace-up-low-top-sneaker.jpg',
-        alt2: 'person-wearing-black-shorts-and-blue-lace-up-low-top-sneaker'
+        altwork: 'person-wearing-black-shorts-and-blue-lace-up-low-top-sneaker',
+        urlworkArt: 'woman-lifting-barbell.jpg',
+        altworkArt: 'woman-lifting-barbell',
+        urlnut: 'agriculture-beans-corn-food.jpg',
+        altnut: 'agriculture-beans-corn-food',
+        urlnutArt: 'agriculture-beans-tomato.jpg',
+        altnutArt: 'agriculture-beans-tomato'
       },
       colors: [
         'indigo',
@@ -264,6 +366,10 @@ export default {
   color: #2a2a2a;
   background: transparent;
 }
+article {
+  border-bottom: 1px solid #7f7f7f53;
+  margin-bottom: 8px !important;
+}
 
 a {
   text-decoration: none;
@@ -280,6 +386,18 @@ a {
   text-transform: uppercase;
   letter-spacing: -1px;
   @include fontSize(26px);
+}
+
+.article__title {
+  font-family: givefont('convergence') !important;
+  color: #2a2a2a;
+  max-height: 5.2em;
+  text-overflow: ellipsis;
+  line-height: 1;
+  transition: opacity 0.2s;
+  letter-spacing: -1px;
+  text-transform: capitalize;
+  @include fontSize(18px);
 }
 
 .l__readmore {
@@ -366,6 +484,34 @@ a {
     width: 100vw;
     height: 8px;
     background: #f01616;
+    position: absolute;
+    top: calc(50% - 4px);
+    left: calc(100% + 30px);
+  }
+}
+#nutrition {
+  @include globalView;
+  .grey--text {
+    color: #9e9e9e5e !important;
+  }
+  .workout__header {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 33px;
+    span {
+      font-family: givefont('convergence');
+      font-weight: 600 !important;
+    }
+  }
+  .workout__header span {
+    position: relative;
+    text-transform: uppercase;
+  }
+  .workout__header span:after {
+    content: '';
+    width: 100vw;
+    height: 8px;
+    background: #16f0ab;
     position: absolute;
     top: calc(50% - 4px);
     left: calc(100% + 30px);
